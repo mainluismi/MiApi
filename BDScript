@@ -1,0 +1,339 @@
+//Creacion de la base de datos
+-- Crea la base de datos
+CREATE DATABASE ApiBD;
+
+-- Selecciona la base de datos recién creada
+USE ApiBD;
+
+-- Crea la tabla de Libros
+CREATE TABLE libros (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    titulo VARCHAR(255) NOT NULL,
+    genero VARCHAR(255),
+    director VARCHAR(255),
+    paginas INT,
+    sinopsis TEXT,
+    valoracion DOUBLE,
+    fecha_estreno DATE,
+    numero_tomo INT,
+    isbn VARCHAR(13) UNIQUE
+);
+
+-- Crea la tabla de Películas
+CREATE TABLE peliculas (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    titulo VARCHAR(255) NOT NULL,
+    director VARCHAR(255),
+    duracion INT,
+    genero VARCHAR(255),
+    fecha_estreno DATE,
+    valoracion DOUBLE,
+    reparto TEXT,
+    sinopsis TEXT
+);
+
+-- Crea la tabla de Series
+CREATE TABLE series (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    titulo VARCHAR(255) NOT NULL,
+    director VARCHAR(255),
+    capitulos INT,
+    temporadas INT,
+    genero VARCHAR(255),
+    fecha_estreno DATE,
+    valoracion DOUBLE,
+    reparto TEXT,
+    sinopsis TEXT
+);
+
+
+//Insercion de libros en la bae de datos
+-- Libro 10
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('The Chronicles of Narnia: The Lion, the Witch and the Wardrobe', 'Fantasía', 'C.S. Lewis', 208, 'Cuatro hermanos descubren un mundo mágico a través de un armario y se unen a la lucha contra la Bruja Blanca.', 4.6, '1950-10-16', 1, '2222222222222');
+
+-- Libro 11
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('The Shining', 'Terror', 'Stephen King', 447, 'Una familia se muda a un hotel aislado, donde el padre comienza a perder la cordura.', 4.4, '1977-01-28', 1, '3333333333333');
+
+-- Libro 12
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('Pride and Prejudice', 'Romance', 'Jane Austen', 279, 'La historia de amor entre Elizabeth Bennet y Mr. Darcy en la Inglaterra del siglo XIX.', 4.7, '1813-01-28', 1, '4444444444444');
+
+-- Libro 13
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('The Hitchhiker''s Guide to the Galaxy', 'Ciencia Ficción, Comedia', 'Douglas Adams', 224, 'Un humano y sus amigos alienígenas viajan por el espacio tras la destrucción de la Tierra.', 4.5, '1979-10-12', 1, '5555555555555');
+
+-- Libro 14
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('The Lord of the Rings: The Fellowship of the Ring', 'Fantasía', 'J.R.R. Tolkien', 398, 'Un grupo de compañeros se embarca en una misión para destruir un anillo malévolo.', 4.9, '1954-07-29', 1, '6666666666666');
+
+-- Libro 15
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('The Girl with the Dragon Tattoo', 'Misterio, Thriller', 'Stieg Larsson', 465, 'Un periodista y una hacker investigan la desaparición de una joven de la alta sociedad.', 4.3, '2005-08-01', 1, '7777777777777');
+
+-- Libro 16
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('The Hunger Games', 'Ciencia Ficción, Aventura', 'Suzanne Collins', 374, 'En un futuro distópico, jóvenes son seleccionados para luchar en un evento televisado mortal.', 4.6, '2008-09-14', 1, '8888888888888');
+
+-- Libro 17
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('The Fault in Our Stars', 'Romance, Drama', 'John Green', 313, 'Dos adolescentes con cáncer se enamoran y enfrentan las complejidades de la vida y la muerte.', 4.2, '2012-01-10', 1, '9999999999999');
+
+-- Manga 1
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('Naruto', 'Acción, Aventura', 'Masashi Kishimoto', 220, 'Naruto Uzumaki busca ser el ninja más fuerte y ganarse el respeto de su aldea.', 4.7, '1999-09-21', 72, '1111111111111');
+
+-- Manga 2
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('One Piece', 'Acción, Aventura', 'Eiichiro Oda', 240, 'Monkey D. Luffy y su tripulación buscan el One Piece, el tesoro más grande del mundo.', 4.9, '1997-07-22', 101, '1222222222221');
+
+-- Manga 3
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('Attack on Titan', 'Acción, Drama', 'Hajime Isayama', 192, 'La humanidad lucha por sobrevivir contra gigantes devoradores de humanos.', 4.8, '2009-09-09', 34, '1333333333331');
+
+-- Manga 4
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('Death Note', 'Misterio, Sobrenatural', 'Tsugumi Ohba', 192, 'Un estudiante encuentra un cuaderno que puede matar a personas si se escribe su nombre en él.', 4.6, '2003-12-01', 12, '1444444444441');
+
+-- Manga 5
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('Fullmetal Alchemist', 'Aventura, Fantasía', 'Hiromu Arakawa', 550, 'Dos hermanos buscan la Piedra Filosofal para recuperar sus cuerpos después de un experimento alquímico fallido.', 4.8, '2001-07-12', 27, '1555555555551');
+
+
+-- Manga 6
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('One Punch Man', 'Acción, Comedia', 'ONE', 160, 'Saitama, un héroe que puede derrotar a cualquier enemigo de un solo puñetazo, busca emoción en sus batallas.', 4.7, '2009-06-14',27,1212121234343'); 
+
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('The Silent Patient', 'Thriller', 'Alex Michaelides', 336, 'Un psicoterapeuta intenta descubrir el motivo detrás del silencio de una paciente que asesinó a su esposo.', 4.0, '2019-02-05', 1, '111111111110');
+
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('Educated', 'Biografía', 'Tara Westover', 352, 'Una mujer relata su lucha por obtener educación formal, escapando de un entorno familiar extremadamente controlador.', 4.5, '2018-02-20', 1, '222222222220');
+
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('The Water Dancer', 'Histórica', 'Ta-Nehisi Coates', 416, 'Un joven esclavo con habilidades misteriosas emprende un viaje para la libertad.', 4.2, '2019-09-24', 1, '333333333330');
+
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('The Great Gatsby', 'Ficción', 'F. Scott Fitzgerald', 180, 'La historia de Jay Gatsby y su obsesión con el sueño americano en la década de 1920.', 4.2, '1925-04-10', 1, '444444444440');
+
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('To Kill a Mockingbird', 'Ficción', 'Harper Lee', 281, 'La narrativa de Scout Finch sobre la injusticia racial en el sur de los Estados Unidos.', 4.5, '1960-07-11', 1, '555555555550');
+
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('1984', 'Ciencia Ficción', 'George Orwell', 328, 'Un sombrío retrato de una distopía totalitaria y la lucha por la verdad y la libertad.', 4.6, '1949-06-08', 1, '666666666660');
+
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('The Catcher in the Rye', 'Ficción', 'J.D. Salinger', 277, 'La odisea de Holden Caulfield en Nueva York mientras busca autenticidad en un mundo superficial.', 4.0, '1951-07-16', 1, '777777777770');
+
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('The Da Vinci Code', 'Misterio', 'Dan Brown', 454, 'Robert Langdon sigue una serie de pistas para resolver un misterio vinculado a obras de arte y religión.', 3.8, '2003-03-18', 1, '888888888880');
+
+INSERT INTO libros (titulo, genero, director, paginas, sinopsis, valoracion, fecha_estreno, numero_tomo, isbn)
+VALUES ('The Hobbit', 'Fantasía', 'J.R.R. Tolkien', 310, 'Bilbo Bolsón emprende una aventura épica para recuperar un tesoro custodiado por el dragón Smaug.', 4.8, '1937-09-21', 1, '011111111110');
+
+
+
+
+//Inserción de series
+-- Serie 1
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Breaking Bad', 'Vince Gilligan', 62, 5, 'Drama, Crimen, Thriller', '2008-01-20', 9.5, 'Bryan Cranston, Aaron Paul, Anna Gunn', 'Un profesor de química se convierte en fabricante de metanfetaminas para asegurar el futuro financiero de su familia.');
+
+-- Serie 2
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Stranger Things', 'Duffer Brothers', 34, 3, 'Drama, Fantasía, Terror', '2016-07-15', 8.8, 'Winona Ryder, David Harbour, Finn Wolfhard', 'Un grupo de niños se enfrenta a fenómenos paranormales en un pequeño pueblo mientras busca a su amigo desaparecido.');
+
+-- Serie 3
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Game of Thrones', 'David Benioff, D.B. Weiss', 73, 8, 'Drama, Fantasía, Aventura', '2011-04-17', 9.3, 'Emilia Clarke, Kit Harington, Peter Dinklage', 'Nobleza, traición y dragones en el continente de Westeros.');
+
+-- Serie 4
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('The Mandalorian', 'Jon Favreau', 24, 2, 'Acción, Aventura, Ciencia Ficción', '2019-11-12', 8.7, 'Pedro Pascal, Gina Carano, Baby Yoda', 'Un cazarrecompensas viaja por la galaxia en el universo de Star Wars.');
+
+-- Serie 5
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('The Witcher', 'Lauren Schmidt Hissrich', 16, 2, 'Acción, Aventura, Drama', '2019-12-20', 8.2, 'Henry Cavill, Freya Allan, Anya Chalotra', 'Un cazador de monstruos busca su destino en un mundo lleno de criaturas peligrosas.');
+
+-- Serie 6
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Black Mirror', 'Charlie Brooker', 22, 5, 'Ciencia Ficción, Drama, Thriller', '2011-12-04', 8.8, 'Varios', 'Historias independientes que exploran el lado oscuro de la tecnología y la sociedad.');
+
+-- Serie 7
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Sherlock', 'Mark Gatiss, Steven Moffat', 13, 4, 'Crimen, Drama, Misterio', '2010-07-25', 9.1, 'Benedict Cumberbatch, Martin Freeman, Una Stubbs', 'Adaptación moderna de las historias de Sherlock Holmes de Arthur Conan Doyle.');
+
+-- Serie 8
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('The Crown', 'Peter Morgan', 40, 4, 'Biografía, Drama, Historia', '2016-11-04', 8.7, 'Claire Foy, Olivia Colman, Tobias Menzies', 'La vida de la Reina Isabel II y los eventos históricos que han marcado su reinado.');
+
+-- Serie 9
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Peaky Blinders', 'Steven Knight', 30, 5, 'Crimen, Drama', '2013-09-12', 8.8, 'Cillian Murphy, Paul Anderson, Helen McCrory', 'Una familia de gánsteres busca poder en Birmingham, Inglaterra, después de la Primera Guerra Mundial.');
+
+-- Serie 10
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Westworld', 'Jonathan Nolan, Lisa Joy', 28, 3, 'Ciencia Ficción, Misterio, Drama', '2016-10-02', 8.6, 'Evan Rachel Wood, Thandie Newton, Jeffrey Wright', 'Un parque temático futurista con androides conscientes se vuelve caótico.');
+
+-- Serie 11
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Narcos', 'Chris Brancato, Carlo Bernard, Doug Miro', 30, 3, 'Biografía, Crimen, Drama', '2015-08-28', 8.8, 'Wagner Moura, Boyd Holbrook, Pedro Pascal', 'La historia del auge y caída del narcotraficante colombiano Pablo Escobar.');
+
+-- Serie 12
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Fargo', 'Noah Hawley', 40, 4, 'Crimen, Drama, Thriller', '2014-04-15', 8.9, 'Billy Bob Thornton, Martin Freeman, Allison Tolman', 'Historias independientes que giran en torno a crímenes oscuros en Minnesota.');
+
+-- Serie 13
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Vikings', 'Michael Hirst', 89, 6, 'Acción, Aventura, Drama', '2013-03-03', 8.5, 'Travis Fimmel, Katheryn Winnick, Gustaf Skarsgård', 'La historia del legendario vikingo Ragnar Lothbrok y sus descendientes.');
+
+-- Serie 14
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Money Heist', 'Álex Pina', 38, 5, 'Acción, Crimen, Misterio', '2017-05-02', 8.3, 'Úrsula Corberó, Álvaro Morte, Itziar Ituño', 'Un grupo de criminales planea y ejecuta el atraco perfecto a la Fábrica Nacional de Moneda y Timbre en Madrid.');
+
+-- Serie 15
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Daredevil', 'Drew Goddard', 39, 3, 'Acción, Aventura, Crimen', '2015-04-10', 8.6, 'Charlie Cox, Deborah Ann Woll, Elden Henson', 'Un abogado ciego lucha contra la injusticia de día y como el héroe Daredevil de noche en Hell's Kitchen.');
+
+-- Serie de Anime 26
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('My Hero Academia', 'Kenji Nagasaki', 104, 5, 'Acción, Aventura, Comedia', '2016-04-03', 8.5, 'Daiki Yamashita, Kenta Miyake, Nobuhiko Okamoto', 'En un mundo donde la mayoría de la población tiene superpoderes, un joven sin poderes busca convertirse en el héroe más grande.');
+
+-- Serie de Anime 27
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Demon Slayer: Kimetsu no Yaiba', 'Haruo Sotozaki', 26, 2, 'Acción, Drama, Sobrenatural', '2019-04-06', 8.7, 'Natsuki Hanae, Akari Kito, Hiro Shimono', 'Tanjiro Kamado, un joven que se convierte en cazador de demonios para vengar a su familia asesinada y salvar a su hermana convertida en demonio.');
+
+-- Serie de Anime 28
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Attack on Titan', 'Tetsuro Araki', 75, 4, 'Acción, Drama, Fantasía', '2013-04-06', 9.0, 'Yuki Kaji, Yui Ishikawa, Marina Inoue', 'La humanidad lucha por sobrevivir contra gigantes devoradores de humanos que amenazan con extinguirlos.');
+
+-- Serie de Anime 29
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('One Punch Man', 'Shingo Natsume', 24, 2, 'Acción, Comedia, Ciencia Ficción', '2015-10-04', 8.7, 'Makoto Furukawa, Kaito Ishikawa, Max Mittelman', 'Saitama, un héroe que puede derrotar a cualquier enemigo de un solo puñetazo, busca emoción en sus batallas.');
+
+-- Serie de Anime 30
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Fullmetal Alchemist: Brotherhood', 'Yasuhiro Irie', 64, 5, 'Acción, Aventura, Drama', '2009-04-05', 9.1, 'Vic Mignogna, Aaron Dismuke, Romi Park', 'Dos hermanos buscan la Piedra Filosofal para recuperar sus cuerpos después de un experimento alquímico fallido.');
+
+
+-- Serie de Anime 31
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Death Note', 'Tetsurō Araki', 37, 1, 'Misterio, Psicológico, Sobrenatural', '2006-10-04', 9.0, 'Mamoru Miyano, Kappei Yamaguchi, Shidou Nakamura', 'Un estudiante encuentra un cuaderno que puede matar a personas si se escribe su nombre en él.');
+
+-- Serie de Anime 32
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Tokyo Ghoul', 'Shuhei Morita', 24, 2, 'Acción, Drama, Horror', '2014-07-04', 8.4, 'Natsuki Hanae, Sora Amamiya, Kana Hanazawa', 'Un estudiante se convierte en mitad ghoul después de un encuentro violento, y debe equilibrar su vida entre humanos y ghouls.');
+
+-- Serie de Anime 33
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Naruto', 'Hayato Date', 220, 5, 'Acción, Aventura, Comedia', '2002-10-03', 8.3, 'Junko Takeuchi, Maile Flanagan, Kate Higgins', 'Naruto Uzumaki busca ser el ninja más fuerte y ganarse el respeto de su aldea.');
+
+-- Serie de Anime 34
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Steins;Gate', 'Hiroshi Hamasaki', 24, 1, 'Ciencia Ficción, Thriller, Drama', '2011-04-06', 9.1, 'Asami Imai, Mamoru Miyano, Kana Hanazawa', 'Un grupo de amigos descubre una forma de enviar mensajes al pasado, pero las consecuencias son impredecibles.');
+
+-- Serie de Anime 35
+INSERT INTO series (titulo, director, capitulos, temporadas, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Sword Art Online', 'Tomohiko Itō', 25, 2, 'Acción, Aventura, Romance', '2012-07-08', 7.6, 'Yoshitsugu Matsuoka, Haruka Tomatsu, Bryce Papenbrook', 'Los jugadores quedan atrapados en un juego de realidad virtual, y deben superar sus desafíos para sobrevivir en el mundo real.');
+
+//Inserción de las peliculas
+-- Película 1
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Origen', 'Christopher Nolan', 148, 'Acción, Aventura, Ciencia Ficción', '2010-07-16 00:00:00', 8.8, 'Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page', 'Un hábil ladrón entra en los sueños de los demás para robar sus secretos más profundos.');
+
+-- Película 2
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Sueño de Fuga', 'Frank Darabont', 142, 'Drama', '1994-09-23 00:00:00', 9.3, 'Tim Robbins, Morgan Freeman, Bob Gunton', 'Dos hombres encarcelados se unen a lo largo de los años, encontrando consuelo y eventual redención a través de actos de decencia común.');
+
+-- Película 3
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('El Caballero de la Noche', 'Christopher Nolan', 152, 'Acción, Crimen, Drama', '2008-07-18 00:00:00', 9.0, 'Christian Bale, Heath Ledger, Aaron Eckhart', 'Cuando surge la amenaza conocida como The Joker, Batman debe enfrentar su mayor desafío psicológico y físico.');
+
+-- Película 4
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Pulp Fiction', 'Quentin Tarantino', 154, 'Crimen, Drama', '1994-10-14 00:00:00', 8.9, 'John Travolta, Uma Thurman, Samuel L. Jackson', 'Las vidas de dos sicarios, un boxeador, un gángster y su esposa, y una pareja de bandidos de un restaurante se entrelazan en cuatro historias de violencia y redención.');
+
+-- Película 5
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('El Padrino', 'Francis Ford Coppola', 175, 'Crimen, Drama', '1972-03-24 00:00:00', 9.2, 'Marlon Brando, Al Pacino, James Caan', 'El patriarca envejecido de una dinastía del crimen organizado transfiere el control de su imperio clandestino a su hijo renuente.');
+
+-- Película 6
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('La Lista de Schindler', 'Steven Spielberg', 195, 'Biografía, Drama, Historia', '1993-12-15 00:00:00', 8.9, 'Liam Neeson, Ben Kingsley, Ralph Fiennes', 'En la Polonia ocupada por los alemanes durante la Segunda Guerra Mundial, el industrial Oskar Schindler se preocupa gradualmente por su fuerza laboral judía después de presenciar su persecución por los nazis.');
+
+-- Película 7
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Forrest Gump', 'Robert Zemeckis', 142, 'Drama, Romance', '1994-07-06 00:00:00', 8.8, 'Tom Hanks, Robin Wright, Gary Sinise', 'Las presidencias de Kennedy y Johnson, los eventos de Vietnam, Watergate y otros eventos históricos se desarrollan a través de la perspectiva de un hombre de Alabama con un coeficiente intelectual de 75.');
+
+-- Película 8
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('El Club de la Pelea', 'David Fincher', 139, 'Drama', '1999-10-15 00:00:00', 8.8, 'Brad Pitt, Edward Norton, Meat Loaf', 'Un trabajador de oficina con insomnio y un fabricante de jabón despreocupado forman un club de lucha clandestino que evoluciona hacia algo mucho, mucho más.');
+
+-- Película 9
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Matrix', 'Lana Wachowski, Lilly Wachowski', 136, 'Acción, Ciencia Ficción', '1999-03-31 00:00:00', 8.7, 'Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss', 'Un pirata informático aprende de rebeldes misteriosos sobre la verdadera naturaleza de su realidad y su papel en la guerra contra sus controladores.');
+
+-- Película 10
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('El Silencio de los Corderos', 'Jonathan Demme', 118, 'Crimen, Drama, Thriller', '1991-02-14 00:00:00', 8.6, 'Jodie Foster, Anthony Hopkins, Lawrence A. Bonney', 'Una joven cadete del FBI debe recibir la ayuda de un asesino en serie encarcelado y manipulador para ayudar a atrapar a otro asesino en serie, un maníaco que despelleja a sus víctimas.');
+
+-- Película 11
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Los Sospechosos de Siempre', 'Bryan Singer', 106, 'Crimen, Misterio, Thriller', '1995-09-15 00:00:00', 8.5, 'Kevin Spacey, Gabriel Byrne, Chazz Palminteri', 'Un único superviviente cuenta los eventos retorcidos que llevaron a un horrible tiroteo en un barco, que comenzó cuando cinco criminales se encontraron en una formación de la policía aparentemente aleatoria.');
+
+-- Película 12
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Seven', 'David Fincher', 127, 'Crimen, Drama, Misterio', '1995-09-22 00:00:00', 8.6, 'Morgan Freeman, Brad Pitt, Kevin Spacey', 'Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his motives.');
+
+-- Película 13
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('El Club de la Pelea', 'David Fincher', 139, 'Drama', '1999-10-15 00:00:00', 8.8, 'Brad Pitt, Edward Norton, Meat Loaf', 'Un trabajador de oficina con insomnio y un fabricante de jabón despreocupado forman un club de lucha clandestino que evoluciona hacia algo mucho, mucho más.');
+
+-- Película 14
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Infiltrados', 'Martin Scorsese', 151, 'Crimen, Drama, Thriller', '2006-10-06 00:00:00', 8.5, 'Leonardo DiCaprio, Matt Damon, Jack Nicholson', 'Un policía encubierto y un topo en la policía intentan identificarse mutuamente mientras se infiltran en una pandilla irlandesa en el sur de Boston.');
+
+-- Película 15
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Milagros Inesperados', 'Frank Darabont', 189, 'Crimen, Drama, Fantasía', '1999-12-10 00:00:00', 8.6, 'Tom Hanks, Michael Clarke Duncan, David Morse', 'Las vidas de los guardianes en el corredor de la muerte se ven afectadas por uno de sus reclusos: un hombre negro acusado de asesinato infantil y violación, pero que tiene un don misterioso.');
+
+-- Película 16
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('El Renacido', 'Alejandro González Iñárritu', 156, 'Aventura, Drama, Western', '2015-12-25 00:00:00', 8.0, 'Leonardo DiCaprio, Tom Hardy, Domhnall Gleeson', 'Un hombre de la frontera lucha por sobrevivir después de ser dejado por muerto y buscar venganza contra aquellos que lo traicionaron.');
+
+-- Película 17
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('La La Land', 'Damien Chazelle', 128, 'Comedia, Drama, Musical', '2016-12-25 00:00:00', 8.0, 'Ryan Gosling, Emma Stone, John Legend', 'En Los Ángeles, un pianista de jazz y una aspirante a actriz se enamoran mientras persiguen sus sueños en una ciudad conocida por destruir esperanzas y romances.');
+
+-- Película 18
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Interestelar', 'Christopher Nolan', 169, 'Aventura, Drama, Ciencia Ficción', '2014-11-07 00:00:00', 8.6, 'Matthew McConaughey, Anne Hathaway, Jessica Chastain', 'Un grupo de exploradores espaciales se embarca en un viaje interestelar en busca de un nuevo hogar para la humanidad después de que la Tierra se vuelva inhabitable.');
+
+-- Película 19
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Gladiador', 'Ridley Scott', 155, 'Acción, Aventura, Drama', '2000-05-05 00:00:00', 8.5, 'Russell Crowe, Joaquin Phoenix, Connie Nielsen', 'Un general romano traicionado busca venganza y redención como gladiador en la antigua Roma.');
+
+-- Película 20
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('El Gran Hotel Budapest', 'Wes Anderson', 100, 'Aventura, Comedia, Crimen', '2014-03-07 00:00:00', 8.1, 'Ralph Fiennes, F. Murray Abraham, Mathieu Amalric', 'Las desventuras de un gerente de hotel y su protegido en el ficticio país europeo de Zubrowka entre las dos guerras mundiales.');
+
+-- Película 21
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Interestelar', 'Christopher Nolan', 169, 'Aventura, Drama, Ciencia Ficción', '2014-11-07 00:00:00', 8.6, 'Matthew McConaughey, Anne Hathaway, Jessica Chastain', 'Un grupo de exploradores espaciales se embarca en un viaje interestelar en busca de un nuevo hogar para la humanidad después de que la Tierra se vuelva inhabitable.');
+
+-- Película 22
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Memento', 'Christopher Nolan', 113, 'Misterio, Suspense', '2000-09-05 00:00:00', 8.4, 'Guy Pearce, Carrie-Anne Moss, Joe Pantoliano', 'Un hombre con pérdida de memoria a corto plazo busca venganza por el asesinato de su esposa siguiendo pistas en su propio cuerpo tatuado.');
+
+-- Película 23
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('El Código Da Vinci', 'Ron Howard', 149, 'Misterio, Thriller', '2006-05-19 00:00:00', 6.6, 'Tom Hanks, Audrey Tautou, Ian McKellen', 'Un simbólogo y una criptógrafa investigan un asesinato en el Louvre y descubren una conspiración que involucra a sociedades secretas y mensajes codificados.');
+
+-- Película 24
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('Bastardos sin Gloria', 'Quentin Tarantino', 153, 'Aventura, Drama, Bélica', '2009-05-20 00:00:00', 8.3, 'Brad Pitt, Diane Kruger, Eli Roth', 'Durante la Segunda Guerra Mundial, un grupo de soldados judíos estadounidenses conocidos como "Los Bastardos" se embarca en una misión para asesinar a líderes nazis.');
+
+-- Película 25
+INSERT INTO peliculas (titulo, director, duracion, genero, fecha_estreno, valoracion, reparto, sinopsis)
+VALUES ('The Social Network', 'David Fincher', 120, 'Biografía, Drama', '2010-10-01 00:00:00', 7.7, 'Jesse Eisenberg, Andrew Garfield, Justin Timberlake', 'La fundación de Facebook y la disputa legal entre los cofundadores Mark Zuckerberg y Eduardo Saverin.');
